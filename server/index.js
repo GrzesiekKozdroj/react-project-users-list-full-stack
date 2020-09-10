@@ -1,7 +1,13 @@
 const express = require('express')
 const axios = require('axios')
-const cors = require('cors')
-const app = express().use(cors())
+//const cors = require('cors')
+const path = require('path')
+const app = express()
+    .use(
+        express.static(
+            path.join(__dirname, '..', 'public')
+        )
+    )
 
 app.get('/users',(req,res)=>{
     axios.get('https://randomuser.me/api/?page=1&results=10')
