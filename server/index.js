@@ -3,6 +3,7 @@ const axios = require('axios')
 //const cors = require('cors')
 const path = require('path')
 const app = express()
+const port = process.env.PORT || 4200
     .use(
         express.static(
             path.join(__dirname, '..', 'public')
@@ -18,6 +19,6 @@ app.get('/users',(req,res)=>{
 app.get('/', (req,res)=>{
     res.send(`<h1>Home page</h1>`)
 })
-app.listen(4200,()=>{
+app.listen(port, ()=>{
     console.log('http://localhost:4200/')
 })
